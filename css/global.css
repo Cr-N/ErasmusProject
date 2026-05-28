@@ -1,0 +1,39 @@
+@font-face {
+    font-family: MOJANG;
+    src: url(../resources/fs-mojang-studios-2.otf);
+}
+
+@font-face {
+  font-family: MINECRAFT;
+  src: url(../resources/minecraftfont.woff);
+}
+
+.mojang-text{
+    font-family: MOJANG;
+    font-size: 35px;
+    color: #ef323d;
+}
+
+.minecraft-text{
+    font-family: MINECRAFT;
+}
+
+
+.background-dirt{
+    background-image: url(../resources/dirtTexture.jpg);   
+}
+
+.background-cobblestone{
+    background-image: url(../resources/cobbleTexture.png);
+}
+
+.section-heading{
+    padding: 1px 0px 1px 0px;
+    font-size: 35px;
+    text-align: center;
+}   
+
+body{
+    margin: 0px 0px 0px 0px;
+    background-color: #77573abd;
+}

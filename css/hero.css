@@ -1,16 +1,3 @@
-@font-face {
-  font-family: MINECRAFT;
-  src: url(../resources/minecraftfont.woff);
-}
-
-body{
-    margin: 0px 0px 0px 0px;
-}
-
-.minecraft-text{
-    font-family: MINECRAFT;
-}
-
 .navbar ul{
     display: flex;
     justify-content: space-evenly;
@@ -26,8 +13,8 @@ body{
 }
 
 .navbar li:hover{
-    transform:  skew(2deg, 5deg);
-
+    transform:  skew(2deg, 5deg) scale(1.3);
+    transition-duration: 0.5s;
 }
 
 .active{
@@ -42,15 +29,18 @@ body{
     color: white;
 }
 
-.hero-div{
-    background-image: url(../resources/dirtTexture.jpg);    
+.TITLE-text{
+    display: flex; 
+    justify-content: space-evenly;
+    gap: 0px;
 }
 
-h1{
-    font-size: 14vw;
+.hero-title{
+    padding: 0px 0px 0px 0px;
+    font-size: 11.75vw;
     padding: 2.3vh;
-    /* margin: 0px 0px 0px 0px; */
-    margin-top: 0px;
+    margin: 0px 0px 0px 0px; 
+    /* margin-top: 0px; */
     color: #fff;
     text-shadow: 15px 15px black;
     text-align: center;

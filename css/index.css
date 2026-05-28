@@ -1,0 +1,22 @@
+.intro-text{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.highlighted-minecraft{
+    font-size: 35px;
+    margin-right: 10px;
+    color: #fff;
+    text-shadow: 7px 7px black;
+}
+
+.enumeration-minecraft-is ul{
+    list-style:none;
+    display: flex;
+    flex-direction: row
+}
+
+.enumeration-minecraft-is{
+    text-align: center;
+    
+}
