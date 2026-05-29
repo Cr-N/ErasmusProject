@@ -33,6 +33,13 @@
     text-align: center;
 }   
 
+.section-content{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
 body{
     margin: 0px 0px 0px 0px;
     background-color: #77573abd;
