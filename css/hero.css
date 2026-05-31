@@ -17,6 +17,12 @@
     transition-duration: 0.5s;
 }
 
+.navbar li{
+    transform:  skew(0deg, 0deg) scale(1);
+    transition-duration: 0.5s;
+}
+
+
 .active{
     background-color: rgba(10, 127, 127, 0.687);
 }

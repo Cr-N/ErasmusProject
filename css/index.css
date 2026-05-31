@@ -20,3 +20,21 @@
     text-align: center;
     
 }
+
+.icon-card a{
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.icon-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 10px 10px 10px 10px;
+    gap: 30px;
+    align-items: center;
+}

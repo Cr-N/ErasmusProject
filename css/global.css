@@ -27,6 +27,19 @@
     background-image: url(../resources/cobbleTexture.png);
 }
 
+.background-sand{
+    background-image: url(../resources/sandTexture.jpg);
+}
+
+.background-grass{
+    background-image: url(../resources/grassTexture.jpg);
+}
+
+.background-craftingTable{
+    background-image: url(../resources/craftingTableTexture.jpg);
+    background-size: 110px;
+}
+
 .section-heading{
     padding: 1px 0px 1px 0px;
     font-size: 35px;
@@ -44,3 +57,6 @@ body{
     margin: 0px 0px 0px 0px;
     background-color: #77573abd;
 }
+
+
+
