@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    background-attachment: scroll;
+}
+.imgleft {
+  float: left;
+  margin-right: 50px;
+   border: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.imgright {
+  float: right;
+  margin-left: 50px;
+   border: 5px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.label {
+    color:white;
+  background: rgb(33, 33, 77);
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  
+    display: inline-block;
+  max-width: 1000px;
+  
+
+  overflow-wrap: break-word;
+}
+.labelbig {
+    color:white;
+  background: rgb(33, 33, 77);
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  
+    display: inline-block;
+  max-width: 2000px;
+
+  overflow-wrap: break-word;
+}
+.grow-link:hover {
+  transform: scale(1.75);
+  color:white;
+  size: 50px;
+}
+
+.grow-link {
+  transition: transform 0.4s ease;
+  color:white;
+  background-color: rgb(33, 33, 77);
+  border: 3px solid rgb(33, 33, 77);
+  border-radius: 10px;
+  size:30px;
+  margin-left:55px;
+  margin-top:5px;
+}
+.LinkRight{
+  float: right;
+  margin-right:55px;
+}
+.GoBelow{
+  margin-top: 20px;
+}
+
+
+
+.side-banner {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 120px; 
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 999;
+    pointer-events: none; 
+}
+
+.left-banner {
+    left: 0;
+}
+
+.right-banner {
+    right: 0;
+}

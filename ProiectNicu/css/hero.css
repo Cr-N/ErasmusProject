@@ -1,0 +1,53 @@
+.navbar ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    padding: 15px;
+    text-shadow: 7px 7px black;
+}
+
+.navbar a:hover{
+    cursor: grab;
+    border: 5px dotted red;
+    color: rgba(255, 0, 0, 0.7);
+}
+
+.navbar li:hover{
+    transform:  skew(2deg, 5deg) scale(1.3);
+    transition-duration: 0.5s;
+}
+
+.navbar li{
+    transform:  skew(0deg, 0deg) scale(1);
+    transition-duration: 0.5s;
+}
+
+
+.active{
+    background-color: rgba(10, 127, 127, 0.687);
+}
+
+.nav-text{
+    text-decoration: none;
+    font-size: 3.5vw;
+    border: 5px solid green; 
+    border-radius: 5px;
+    color: white;
+}
+
+.TITLE-text{
+    display: flex; 
+    justify-content: space-evenly;
+    gap: 0px;
+}
+
+.hero-title{
+    padding: 0px 0px 0px 0px;
+    font-size: 11.75vw;
+    padding: 2.3vh;
+    margin: 0px 0px 0px 0px; 
+    /* margin-top: 0px; */
+    color: #fff;
+    text-shadow: 15px 15px black;
+    text-align: center;
+}

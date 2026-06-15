@@ -1,0 +1,17 @@
+h1{
+    color: rgb(107, 84, 3);
+    font-size: 100px;
+    font-weight: 100px;
+    font-family: initial, sans-serif;
+    background-color: rgb(253, 253, 253);
+}
+body {
+    background: linear-gradient(to right, pink, rgb(240, 173, 48), rgb(255, 255, 70));
+
+}
+.sobolan{
+    color: rgb(107, 84, 3)
+}
+.la{
+    color: rgb(183, 83, 99)
+}

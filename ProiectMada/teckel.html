@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tekel — The Dachshund Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F7F2EA;
+  --cream: #FDFAF4;
+  --card: #FFFFFF;
+  --brown: #5C3317;
+  --tan: #B87333;
+  --gold: #D4960A;
+  --accent: #A0522D;
+  --text: #2A1A0E;
+  --muted: #8B6650;
+  --border: rgba(92,51,23,0.12);
+  --green: #3A6B35;
+  --purple: #5B3F8A;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; min-height: 100vh; }
+ 
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(247,242,234,0.95); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2.5rem; height: 64px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; color: var(--brown);
+  cursor: pointer; display: flex; align-items: center; gap: 10px;
+  font-style: italic;
+}
+.nav-logo span { font-size: 1.6rem; }
+.nav-links { display: flex; gap: 0.25rem; list-style: none; }
+.nav-links a {
+  font-size: 0.82rem; font-weight: 500; color: var(--muted);
+  text-decoration: none; padding: 7px 15px; border-radius: 99px;
+  transition: color 0.2s, background 0.2s; cursor: pointer; letter-spacing: 0.03em;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--brown); background: rgba(92,51,23,0.09); }
+ 
+.page { display: none; }
+.page.active { display: block; }
+ 
+/* HERO */
+.hero {
+  padding: 6rem 2rem 4rem; text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+.hero-badge {
+  display: inline-block;
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--tan); font-weight: 500; margin-bottom: 1.5rem;
+  border: 1px solid rgba(184,115,51,0.3); padding: 5px 16px; border-radius: 99px;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 1.0; color: var(--brown); margin-bottom: 0.75rem;
+}
+.hero h1 em { font-style: italic; color: var(--tan); display: block; }
+.hero-sub { font-size: 1rem; color: var(--muted); max-width: 500px; margin: 0 auto 1rem; line-height: 1.75; }
+.hero-note {
+  font-size: 0.75rem; color: var(--tan); font-style: italic;
+  margin-bottom: 3rem; opacity: 0.8;
+}
+ 
+/* DACHSHUND ILLUSTRATION */
+.dach-wrap { margin: 0 auto 3rem; width: fit-content; }
+ 
+/* HOME BREED CARDS */
+.home-section { max-width: 1080px; margin: 0 auto; padding: 1rem 2rem 6rem; }
+.sec-header {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;
+}
+.sec-header::before, .sec-header::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.sec-header span { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tan); font-weight: 500; white-space: nowrap; }
+ 
+.breeds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
+ 
+.breed-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 22px; overflow: hidden; cursor: pointer;
+  transition: transform 0.28s cubic-bezier(.2,.8,.2,1), box-shadow 0.28s;
+  display: block;
+}
+.breed-card:hover { transform: translateY(-7px); box-shadow: 0 20px 50px rgba(92,51,23,0.13); }
+.breed-card img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.4s; }
+.breed-card:hover img { transform: scale(1.04); }
+.img-wrap { overflow: hidden; }
+.breed-card-body { padding: 1.5rem; }
+.breed-tag {
+  display: inline-block; font-size: 0.62rem; letter-spacing: 0.13em;
+  text-transform: uppercase; font-weight: 500; padding: 4px 11px;
+  border-radius: 99px; margin-bottom: 0.8rem;
+}
+.tag-smooth { background: #FEF0E0; color: #9A5A1A; border: 1px solid rgba(154,90,26,0.2); }
+.tag-long   { background: #EAF3E8; color: var(--green); border: 1px solid rgba(58,107,53,0.2); }
+.tag-wire   { background: #EFE9F8; color: var(--purple); border: 1px solid rgba(91,63,138,0.2); }
+ 
+.breed-card h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--brown); margin-bottom: 0.4rem; }
+.breed-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.1rem; }
+.card-cta { font-size: 0.78rem; font-weight: 500; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
+.card-cta::after { content: '→'; }
+ 
+/* BREED DETAIL PAGE */
+.breed-page { max-width: 860px; margin: 0 auto; padding: 2.5rem 2rem 6rem; }
+.back-btn {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 0.82rem; font-weight: 500; color: var(--muted);
+  cursor: pointer; margin-bottom: 2rem; background: none; border: none;
+  padding: 0; font-family: 'DM Sans', sans-serif; transition: color 0.2s;
+}
+.back-btn:hover { color: var(--brown); }
+ 
+.breed-hero-img {
+  width: 100%; height: 380px; object-fit: cover;
+  border-radius: 22px; margin-bottom: 1.5rem; display: block;
+  box-shadow: 0 4px 32px rgba(92,51,23,0.1);
+}
+ 
+.breed-page h1 { font-family: 'Playfair Display', serif; font-size: 2.6rem; color: var(--brown); margin-bottom: 0.4rem; }
+.breed-page .breed-tag { margin-bottom: 1.25rem; }
+ 
+/* Tekel spotlight box */
+.tekel-box {
+  background: linear-gradient(135deg, #FEF7EC 0%, #FDF3E3 100%);
+  border: 1px solid rgba(184,115,51,0.25);
+  border-left: 4px solid var(--tan);
+  border-radius: 14px; padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem; display: flex; gap: 12px; align-items: flex-start;
+}
+.tekel-box .tekel-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+.tekel-box p { font-size: 0.88rem; color: var(--brown); line-height: 1.7; }
+.tekel-box p strong { font-weight: 500; color: var(--tan); }
+ 
+.breed-page .desc { font-size: 0.975rem; color: var(--text); line-height: 1.85; margin-bottom: 2.5rem; opacity: 0.9; }
+ 
+.traits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.9rem; margin-bottom: 3rem; }
+.trait-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; text-align: center; }
+.trait-box .label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+.trait-box .value { font-size: 0.92rem; font-weight: 500; color: var(--brown); }
+ 
+.detail-section-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--brown); margin-bottom: 1rem; }
+
+footer {
+  text-align: center; padding: 2rem;
+  font-size: 0.78rem; color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+footer strong { color: var(--tan); font-weight: 500; }
+</style>
+</head>
+<body>
+ 
+<nav>
+  <div class="nav-logo" onclick="showPage('home')"><span>🐾</span> Tekel</div>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('smooth')" id="nav-smooth">Smooth</a></li>
+    <li><a onclick="showPage('long')" id="nav-long">Long-Haired</a></li>
+    <li><a onclick="showPage('wire')" id="nav-wire">Wire-Haired</a></li>
+  </ul>
+</nav>
+ 
+<div class="page active" id="page-home">
+  <section class="hero">
+    <div class="hero-badge">The Dachshund Companion</div>
+    <h1>The<br><em>Tekel</em></h1>
+    <p class="hero-sub">Known as the Dachshund in Germany and the Tekel across much of Europe — three coats, one legendary long dog.</p>
+    <p class="hero-note">"Tekel" — the beloved Dutch, Afrikaans & Turkish name for the Dachshund</p>
+ 
+    <div class="dach-wrap">
+      <svg width="280" height="90" viewBox="0 0 280 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <ellipse cx="130" cy="48" rx="88" ry="22" fill="#C4905C"/>
+        <ellipse cx="130" cy="56" rx="70" ry="12" fill="#B07A48" opacity="0.4"/>
+        <ellipse cx="210" cy="38" rx="26" ry="22" fill="#C4905C"/>
+        <ellipse cx="232" cy="44" rx="12" ry="9" fill="#A8723E"/>
+        <ellipse cx="241" cy="41" rx="4" ry="3" fill="#3D1F0A"/>
+        <circle cx="240" cy="40" r="1.2" fill="white" opacity="0.6"/>
+        <circle cx="219" cy="33" r="4" fill="#2A1A10"/>
+        <circle cx="220.5" cy="32" r="1.5" fill="white" opacity="0.7"/>
+        <ellipse cx="200" cy="24" rx="13" ry="7" fill="#9B6040" transform="rotate(-18 200 24)"/>
+        <path d="M42 45 Q22 25 26 8" stroke="#C4905C" stroke-width="7" stroke-linecap="round" fill="none"/>
+        <path d="M42 45 Q22 25 26 8" stroke="#A8723E" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.4"/>
+        <rect x="70" y="65" width="12" height="20" rx="6" fill="#A8723E"/>
+        <rect x="92" y="67" width="12" height="18" rx="6" fill="#A8723E"/>
+        <rect x="148" y="67" width="12" height="18" rx="6" fill="#A8723E"/>
+        <rect x="170" y="65" width="12" height="20" rx="6" fill="#A8723E"/>
+        <ellipse cx="76" cy="84" rx="6" ry="3" fill="#8B5E32" opacity="0.5"/>
+        <ellipse cx="98" cy="84" rx="6" ry="3" fill="#8B5E32" opacity="0.5"/>
+        <ellipse cx="154" cy="84" rx="6" ry="3" fill="#8B5E32" opacity="0.5"/>
+        <ellipse cx="176" cy="84" rx="6" ry="3" fill="#8B5E32" opacity="0.5"/>
+        <rect x="185" y="55" width="28" height="7" rx="3.5" fill="#D4601A"/>
+        <circle cx="199" cy="64" r="3.5" fill="#B8860B"/>
+      </svg>
+    </div>
+  </section>
+ 
+  <section class="home-section">
+    <div class="sec-header"><span>Choose a Variety</span></div>
+    <div class="breeds-grid">
+ 
+      <div class="breed-card" onclick="showPage('smooth')">
+        <div class="img-wrap">
+          <img src="teckellll.avif" alt="Smooth Dachshund">
+        
+        </div>
+        <div class="breed-card-body">
+          <span class="breed-tag tag-smooth">Smooth-Haired</span>
+          <h2>The Classic Smooth</h2>
+          <p>Sleek, low-maintenance, and dynamic. The traditional short coat highlights the iconic elongated silhouette.</p>
+          <span class="card-cta">Explore variety</span>
+        </div>
+      </div>
+ 
+      <div class="breed-card" onclick="showPage('long')">
+        <div class="img-wrap">
+          <img src="tekelll1.jfif" alt="Long-Haired Dachshund">
+        </div>
+        <div class="breed-card-body">
+          <span class="breed-tag tag-long">Long-Haired</span>
+          <h2>The Elegant Long</h2>
+          <p>Sleek, wavy locks and a soft, calm demeanor. Known for their beautiful feathering on the ears and tail.</p>
+          <span class="card-cta">Explore variety</span>
+        </div>
+      </div>
+ 
+      <div class="breed-card" onclick="showPage('wire')">
+        <div class="img-wrap">
+          <img src="Tekelww2.jfif" alt="Wire-Haired Dachshund">
+        </div>
+        <div class="breed-card-body">
+          <span class="breed-tag tag-wire">Wire-Haired</span>
+          <h2>The Spirited Wire</h2>
+          <p>Distinguished bushy eyebrows and a cheeky beard. Packed with a clownish and energetic personality.</p>
+          <span class="card-cta">Explore variety</span>
+        </div>
+      </div>
+ 
+    </div>
+  </section>
+</div>
+
+<div class="page" id="page-smooth">
+  <div class="breed-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to home</button>
+    <img src="teckellll.avif" alt="Smooth Tekel">
+    <span class="breed-tag tag-smooth">Smooth-Haired</span>
+    <h1>The Smooth Tekel</h1>
+    
+    <div class="tekel-box">
+      <span class="tekel-icon">💡</span>
+      <p><strong>Quick Fact:</strong> The smooth coat is the original variant bred specifically for easily slipping into narrow underground dens without getting stuck.</p>
+    </div>
+    
+    <p class="desc">The smooth-haired Dachshund is the quintessential representation of the breed. Their coat is short, dense, and shining, requiring minimal grooming. Bold and confident, these little companions are exceptionally loyal and possess a large-dog bark packed into a compact body.</p>
+    
+    <div class="traits-grid">
+      <div class="trait-box"><div class="label">Grooming</div><div class="value">Low</div></div>
+      <div class="trait-box"><div class="label">Energy</div><div class="value">Medium-High</div></div>
+      <div class="trait-box"><div class="label">Temperament</div><div class="value">Brave & Loyal</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-long">
+  <div class="breed-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to home</button>
+    <img src="tekelll1.jfif" class="breed-hero-img" alt="Long-Haired Tekel">
+    <span class="breed-tag tag-long">Long-Haired</span>
+    <h1>The Long-Haired Tekel</h1>
+    
+    <div class="tekel-box">
+      <span class="tekel-icon">💡</span>
+      <p><strong>Quick Fact:</strong> It is widely believed that the long-haired variety was originally created by crossing the smooth variety with various spaniels.</p>
+    </div>
+    
+    <p class="desc">Boasting a soft, elegant coat with dramatic feathering on the ears, chest, and tail, the long-haired variety is often considered the gentlest and most easy-going of the three types. Their stunning appearance matches their sweet, affectionate nature.</p>
+    
+    <div class="traits-grid">
+      <div class="trait-box"><div class="label">Grooming</div><div class="value">High</div></div>
+      <div class="trait-box"><div class="label">Energy</div><div class="value">Medium</div></div>
+      <div class="trait-box"><div class="label">Temperament</div><div class="value">Gentle & Sweet</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-wire">
+  <div class="breed-page">
+    <button class="back-btn" onclick="showPage('home')">← Back to home</button>
+    <img src="TECKELww.jpg" class="breed-hero-img" alt="Wire-Haired Tekel">
+    <span class="breed-tag tag-wire">Wire-Haired</span>
+    <h1>The Wire-Haired Tekel</h1>
+    
+    <div class="tekel-box">
+      <span class="tekel-icon">💡</span>
+      <p><strong>Quick Fact:</strong> Developed later by introducing Terriers (like the Schnauzer), this coat offers maximum protection against harsh brush and briars.</p>
+    </div>
+    
+    <p class="desc">Characterized by their rugged, wire-like outer coat, iconic beard, and expressive eyebrows, wire-haired Dachshunds are full of mischievous charm. They have a distinct terrier-like grit, making them incredibly playful, curious, and stubborn.</p>
+    
+    <div class="traits-grid">
+      <div class="trait-box"><div class="label">Grooming</div><div class="value">Medium</div></div>
+      <div class="trait-box"><div class="label">Energy</div><div class="value">High</div></div>
+      <div class="trait-box"><div class="label">Temperament</div><div class="value">Feisty & Playful</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Made for <strong>Tekel</strong> enthusiasts. All rights reserved.</p>
+</footer>
+
+<script>
+function showPage(pageId) {
+  // Ascunde toate paginile
+  const pages = document.querySelectorAll('.page');
+  pages.forEach(page => page.classList.remove('active'));
+  
+  // Afișează pagina selectată
+  const targetPage = document.getElementById('page-' + pageId);
+  if (targetPage) {
+    targetPage.classList.add('active');
+  }
+  
+  // Actualizează clasa active în meniul de navigare
+  const links = document.querySelectorAll('.nav-links a');
+  links.forEach(link => link.classList.remove('active'));
+  
+  const activeLink = document.getElementById('nav-' + pageId);
+  if (activeLink) {
+    activeLink.classList.add('active');
+  }
+  
+  // Derulează în sus automat la schimbarea paginii
+  window.scrollTo(0, 0);
+}
+</script>
+<br>
+  <div style="text-align: center; padding: 30px 15px; background: #111827;">
+    <a 
+        href="/index.html"
+        style="
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: white;
+            color: #111827;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, background 0.2s ease;
+        "
+        onmouseover="this.style.transform='translateY(-3px)'; this.style.background='#e0f2fe';"
+        onmouseout="this.style.transform='translateY(0)'; this.style.background='white';"
+    >
+        ← Înapoi la arhiva proiectelor
+    </a>
+</div>
+</body>
+</html>

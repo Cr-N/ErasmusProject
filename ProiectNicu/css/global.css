@@ -1,0 +1,62 @@
+@font-face {
+    font-family: MOJANG;
+    src: url(../resources/fs-mojang-studios-2.otf);
+}
+
+@font-face {
+  font-family: MINECRAFT;
+  src: url(../resources/minecraftfont.woff);
+}
+
+.mojang-text{
+    font-family: MOJANG;
+    font-size: 35px;
+    color: #ef323d;
+}
+
+.minecraft-text{
+    font-family: MINECRAFT;
+}
+
+
+.background-dirt{
+    background-image: url(../resources/dirtTexture.jpg);   
+}
+
+.background-cobblestone{
+    background-image: url(../resources/cobbleTexture.png);
+}
+
+.background-sand{
+    background-image: url(../resources/sandTexture.jpg);
+}
+
+.background-grass{
+    background-image: url(../resources/grassTexture.jpg);
+}
+
+.background-craftingTable{
+    background-image: url(../resources/craftingTableTexture.jpg);
+    background-size: 110px;
+}
+
+.section-heading{
+    padding: 1px 0px 1px 0px;
+    font-size: 35px;
+    text-align: center;
+}   
+
+.section-content{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px; 
+    margin-bottom: 10px;
+}
+
+body{
+    margin: 0px 0px 0px 0px;
+    background-color: #77573abd;
+}
+
+
+
