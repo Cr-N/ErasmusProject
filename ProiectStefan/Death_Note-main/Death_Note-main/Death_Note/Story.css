@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "Death";
+    src: url(Death\ Note.ttf);
+}
+
+body{
+background: linear-gradient(to bottom,rgb(209, 0, 0),black);
+background-repeat: no-repeat;
+background-attachment:  fixed;
+background-size: auto ;
+
+}
+.para{
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255),rgb(145, 0, 0));
+    background-clip: text;
+    color: transparent;
+}
+.underl:after{
+    content: '';
+    position: relative;
+    
+    display: block;
+    width: 140px;
+    height: 3px;
+    bottom: 17px;
+    left: 878px;
+    
+    
+    background-color: rgb(255, 255, 255);
+}

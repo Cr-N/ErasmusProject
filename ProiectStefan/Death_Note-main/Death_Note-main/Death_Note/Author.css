@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Death";
+    src: url(Death\ Note.ttf);
+}
+
+body{
+    background-image: url(Author_background.webp);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-color: black;
+}
+.Death{
+    font-family: 'Death';
+}
+.left{
+    left: 100px;
+    
+}
+.center2{
+    text-align: center;
+    max-width: 10%;
+}
+.underl:after{
+    content: '';
+    position: relative;
+    
+    display: block;
+    width: 236px;
+    height: 3px;
+    bottom: 13px;
+    left: 12px;
+    
+    
+    background-color: rgb(255, 255, 255);
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    /* grid-template-rows: auto; */
+    gap: 0px;
+}
+.grid2{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: auto; */
+    gap: 0px;
+}
+.i2{
+   grid-row: 2/3; 
+}
+.a1{
+    grid-row: 1/2;
+    grid-column: 2/3;
+}
+.a2{
+    grid-row: 1/2;
+    grid-column: 3/4;
+}
+.a3{
+    grid-row: 1/2;
+    grid-column: 4/5;
+}
